@@ -1,0 +1,70 @@
+{
+  "name": "crud-workshop",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Igor Fedyukin <Igor_Fedyukin@epam.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ifedyukin/crud-workshop.git"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0",
+      "stage-1",
+      "stage-2",
+      "stage-3",
+      "react"
+    ],
+    "plugins": [
+      "transform-object-rest-spread",
+      "react-hot-loader/babel",
+      "syntax-dynamic-import"
+    ]
+  },
+  "dependencies": {
+    "babel-loader": "^7.1.2",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "css-loader": "^0.28.7",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "html-webpack-plugin": "^2.30.1",
+    "jsonwebtoken": "^8.1.0",
+    "morgan": "^1.9.0",
+    "node-fetch": "^1.7.3",
+    "normalize.css": "^7.0.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-hot-loader": "^3.1.3",
+    "react-router-dom": "^4.2.2",
+    "style-loader": "^0.19.0",
+    "universal-cookie": "^2.1.0",
+    "webpack": "^3.9.1",
+    "webpack-dev-middleware": "^1.12.2",
+    "webpack-hot-middleware": "^2.21.0"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.15.2",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "copy-webpack-plugin": "^5.0.0",
+    "cross-env": "^5.1.1",
+    "force-case-sensitivity-webpack-plugin": "^0.2.1",
+    "happypack": "^4.0.0",
+    "nodemon": "^1.12.1"
+  },
+  "scripts": {
+    "start": "cd bin && node server/index.js",
+    "build": "cross-env NODE_ENV=production webpack",
+    "server": "cross-env NODE_ENV=production nodemon --exec babel-node src/server/index.js",
+    "compile": "npm run build && npm run ncc",
+    "ncc": "ncc build ./src/server/index.js -o ./build/server -m"
+  }
+}
